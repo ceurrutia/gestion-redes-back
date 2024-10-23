@@ -1,0 +1,54 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de directorios de sistema
+.DS_Store
+Thumbs.db
+
+# Carpeta de cobertura de pruebas
+coverage/
+
+# Archivos de configuración específicos del entorno
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de configuración de editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Archivos de lock y cache
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+.pnpm-store/
+
+# Archivos de compilación o distribución
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Otros archivos temporales
+.tmp/
+.cache/
+*.bak
+*.swp
+
+# Archivos de Docker
+docker-compose.override.yml
+
+
