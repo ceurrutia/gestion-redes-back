@@ -33,22 +33,32 @@ router.post('/', async (request, response) => {
 
 //get cuentas
 
-router.get('/', async (request, response)=> {
+router.get('/', async (request, response) => {
     try {
-        const account = await Account.find({})
-        return response.status(200).send(
-            {
-                count: account.length,
-                data: account
-            }
-        )
+        const { nombreApellido } = request.query; 
 
-    } catch (error){
-        console.log(error.message)
-        response.status(500).send( {message: error.message})
+        let accounts;
+
+        if (nombreApellido) {
+            // Filtrar cuentas con 3 primras letras
+            accounts = await Account.find({
+                nombreApellido: { $regex: '^' + nombreApellido, $options: 'i' } 
+            });
+        } else {
+            accounts = await Account.find({});
+        }
+
+        return response.status(200).send({
+            count: accounts.length,
+            data: accounts
+        });
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({ message: error.message });
     }
+});
 
-})
 
 //get a account for it ID
 
